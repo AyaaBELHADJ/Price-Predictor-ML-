@@ -159,7 +159,7 @@ for page_number in range(START_PAGE, END_PAGE):
                     product_dict['specs_modele'] = spec['valueText'][0]
                 elif label == 'Transmission':
                     product_dict['specs_transmission'] = spec['valueText'][0]
-                e#lif label== 'Options de voiture':
+                #elif label== 'Options de voiture':
                     
             products_master_list.append(product_dict)
             df = pd.DataFrame(products_master_list)
@@ -169,8 +169,4 @@ for page_number in range(START_PAGE, END_PAGE):
         except Exception as e:
             print(f'error occurred: {e}')
 
-            ### in case you just one to get 1 product for testing purpose, un comment the break bellow, and the page break bellow it
-            # break
-        
-        ### in case you just one to get 1 page for testing purpose, un comment the break bellow
-        #break
+           
