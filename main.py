@@ -21,7 +21,7 @@ category_headers = {
     'sec-fetch-site': 'same-site',
     'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36',
     'x-app-version': '"2.2.42"',
-    'x-referer': 'https://www.ouedkniss.com/automobiles/1?keywords=voiture&hasPrice=true',
+    'x-referer': 'https://www.ouedkniss.com/automobiles',
     # 'x-track-id': '498fc604-2a6e-48a7-a279-f1e1e6d549e1',
     # 'x-track-timestamp': '1711900530',
     # 'x-track-timestamp': '1712016638',
@@ -85,9 +85,8 @@ for page_number in range(START_PAGE, END_PAGE):
     list_data = response.json()
 
     ### get product ids with price
-    product_ids_with_price = [product['id'] for product in list_data['data']['search']['announcements']['data'] ]
+    product_ids_with_price = [product['id'] for product in list_data['data']['search']['announcements']['data'] if product.get('price') is not None ]
     print(f'Number of cars with price found on the page: {len(product_ids_with_price)}')
-    # print(product_ids_with_price)
 
     ### loop through the product ids
     ### get the product data
@@ -111,14 +110,15 @@ for page_number in range(START_PAGE, END_PAGE):
             'title': product_data['data']['announcement']['title'],
             'price': product_data['data']['announcement']['price'],
             'specs_annee': None,
-            'specs_car_engine': None,
-            'specs_car_options': None,
+            'specs_car_engine': None, #moteur
             'specs_couleur_auto': None,
             'specs_papiers': None,
             'specs_kilometrage': None,
             'specs_marque-voiture': None,
             'specs_modele': None,
-            'specs_transmission': None,
+            'specs_finition' :None,
+            'specs_energie' :None,
+            'specs_boite' :None,
             }
             for i in range(0, 12):
                 product_dict[f'option{i}'] = None
@@ -133,9 +133,7 @@ for page_number in range(START_PAGE, END_PAGE):
                 if label == 'Année':
                     product_dict['specs_annee'] = spec['valueText'][0]
                 elif label == 'Moteur':
-                    product_dict['specs_car_engine'] = spec['valueText'][0]
-                elif label == 'Options':
-                    product_dict['specs_car_options'] = spec['valueText'][0]
+                    product_dict['specs_car_engine'] = spec['valueText'][0]   #moteur
                 elif label == 'Couleur':
                     product_dict['specs_couleur_auto'] = spec['valueText'][0]
                 elif label == 'Papiers':
@@ -146,8 +144,12 @@ for page_number in range(START_PAGE, END_PAGE):
                     product_dict['specs_marque-voiture'] = spec['valueText'][0]
                 elif label == 'Modèle':
                     product_dict['specs_modele'] = spec['valueText'][0]
-                elif label == 'Transmission':
-                    product_dict['specs_transmission'] = spec['valueText'][0]
+                elif label =='Finition':
+                    product_dict['specs_finition'] = spec['valueText'][0]
+                elif label =='Energie':
+                    product_data['specs_energie'] = spec['valueText'][0]
+                elif label =='Boite':
+                    product_data['specs_boite'] = spec['valueText'][0]
                 elif label == 'Options de voiture':
                     option_values = spec['valueText']  # Assuming spec['valueText'] contains values corresponding to each option
                     for i, value in enumerate(option_values):
@@ -162,3 +164,4 @@ for page_number in range(START_PAGE, END_PAGE):
             print(f'error occurred: {e}')
 
            
+
