@@ -119,21 +119,10 @@ for page_number in range(START_PAGE, END_PAGE):
             'specs_marque-voiture': None,
             'specs_modele': None,
             'specs_transmission': None,
-            'abs': None,  # Change from 'ABS' to 'abs'
-            'climatisation': None,  # Change from 'Climatisation' to 'climatisation'
-            'alarme': None,  # Change from 'Alarme' to 'alarme'
-            'jantes-alliage': None,  # Change from 'Jantes Alliage' to 'jantes-alliage'
-            'retroviseurs-electriques': None,  # Change from 'Retroviseurs électriques' to 'retroviseurs-electriques'
-            'vitres-electriques': None,  # Change from 'Vitres éléctriques' to 'vitres-electriques'
-            'esp': None,  # No change needed
-            'phares-antibrouillard': None,  # Change from 'Phares antibrouillard' to 'phares-antibrouillard'
-            'feux-du-jour': None,  # Change from 'Feux du jour' to 'feux-du-jour'
-            'radar-de-recul': None,  # No change needed
-            'direction-assisstee': None,  # Change from 'Direction assisstée' to 'direction-assisstee'
-            'radio-cd': None,  # Change from 'Radio CD' to 'radio-cd'
-            'toit-ouvrant': None,  # Change from 'Toit ouvrant' to 'toit-ouvrant'
-            'phares-xenon': None  # Change from 'Phares xénon' to 'phares-xenon'
             }
+            for i in range(0, 12):
+                product_dict[f'option{i}'] = None
+                
             product_dict['id'] = product_data['data']['announcement']['id']
             product_dict['title'] = product_data['data']['announcement']['title']
             product_dict['price'] = product_data['data']['announcement']['price']
@@ -160,14 +149,9 @@ for page_number in range(START_PAGE, END_PAGE):
                 elif label == 'Transmission':
                     product_dict['specs_transmission'] = spec['valueText'][0]
                 elif label == 'Options de voiture':
-                        options = spec['value']
-                        option_values = spec['valueText']  # Assuming spec['valueText'] contains values corresponding to each option
-                        i = 0
-                        for option in options:
-                            if option in product_dict:
-                                # Check if there's a corresponding value for the option
-                                product_dict[option] = option_values[i]  # Update the value corresponding to the option at index i
-                            i += 1
+                    option_values = spec['valueText']  # Assuming spec['valueText'] contains values corresponding to each option
+                    for i, value in enumerate(option_values):
+                        product_dict[f'option{i}'] = value
                            
             products_master_list.append(product_dict)
             df = pd.DataFrame(products_master_list)
@@ -177,5 +161,4 @@ for page_number in range(START_PAGE, END_PAGE):
         except Exception as e:
             print(f'error occurred: {e}')
 
-           
            
