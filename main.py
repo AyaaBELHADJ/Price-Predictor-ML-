@@ -3,7 +3,7 @@ import pandas as pd
 
 products_master_list = []
 START_PAGE = 1
-END_PAGE = 104
+END_PAGE = 1721
 
 category_headers = {
     'accept': '*/*',
@@ -21,7 +21,7 @@ category_headers = {
     'sec-fetch-site': 'same-site',
     'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36',
     'x-app-version': '"2.2.42"',
-    'x-referer': 'https://www.ouedkniss.com/automobiles/1?keywords=voiture&hasPrice=true',
+    'x-referer': 'https://www.ouedkniss.com/automobiles',
     # 'x-track-id': '498fc604-2a6e-48a7-a279-f1e1e6d549e1',
     # 'x-track-timestamp': '1711900530',
     # 'x-track-timestamp': '1712016638',
@@ -43,7 +43,7 @@ product_headers = {
     'sec-fetch-site': 'same-site',
     'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36',
     'x-app-version': '"2.2.42"',
-    'x-referer': 'https://www.ouedkniss.com/commerciale-fiat-doblo-2024-saida-algerie-d40107025',
+    'x-referer': 'https://www.ouedkniss.com/tout-terrain-suv-renault-captur-2021-intens-boumerdes-algerie-d40609223',
     # 'x-track-id': '498fc604-2a6e-48a7-a279-f1e1e6d549e1',
     # 'x-track-timestamp': '1712018449',
 }
@@ -158,9 +158,10 @@ for page_number in range(START_PAGE, END_PAGE):
             products_master_list.append(product_dict)
             df = pd.DataFrame(products_master_list)
             df.to_csv('cars_data_from_ouedkniss_csv.csv', index=False)
-            df.to_excel('cars_data_from_ouedkniss_excel.xlsx', index=False)
+            #df.to_excel('cars_data_from_ouedkniss_excel.xlsx', index=False)
         
         except Exception as e:
             print(f'error occurred: {e}')
 
+           
            
