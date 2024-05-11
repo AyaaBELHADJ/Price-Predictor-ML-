@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CARSIM</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+
+  <script>
+    // script.js
+
+    document.addEventListener("DOMContentLoaded", function () {
+      // Fonction pour afficher le bouton lorsque l'utilisateur fait défiler vers le bas
+      window.onscroll = function () {
+        scrollFunction();
+      };
+
+      function scrollFunction() {
+        if (
+          document.body.scrollTop > 20 ||
+          document.documentElement.scrollTop > 20
+        ) {
+          document.getElementById("scrollToTopBtn").style.display = "block";
+        } else {
+          document.getElementById("scrollToTopBtn").style.display = "none";
+        }
+      }
+
+      // Fonction pour remonter en haut de la page lorsque le bouton est cliqué
+      function topFunction() {
+        document.body.scrollTop = 0; // Pour les navigateurs Safari
+        document.documentElement.scrollTop = 0; // Pour les autres navigateurs
+      }
+    });
+  </script>
+
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container">
+        <a class="navbar-brand mt-2" href="#">
+          <img
+            src="assets/Logo.png"
+            alt="Logo"
+            width="45"
+            height="40"
+            class="d-inline-block align-text-center"
+          />
+          CARSIM
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#developpers">Team</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#about">About</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <section class="hero">
+      <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+          <button
+            type="button"
+            data-bs-target="#heroCarousel"
+            data-bs-slide-to="0"
+            class="active"
+            aria-current="true"
+            aria-label="Slide 1"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#heroCarousel"
+            data-bs-slide-to="1"
+            aria-label="Slide 2"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#heroCarousel"
+            data-bs-slide-to="2"
+            aria-label="Slide 3"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#heroCarousel"
+            data-bs-slide-to="3"
+            aria-label="Slide 4"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#heroCarousel"
+            data-bs-slide-to="4"
+            aria-label="Slide 5"
+          ></button>
+        </div>
+
+        <div class="carousel-inner">
+          <div class="carousel-item active c-item">
+            <img
+              src="/assets/pexels-instawally-191238.jpg"
+              class="d-block w-100 c-img"
+              alt="Image 1"
+              height="100%"
+              width="100%"
+            />
+            <div class="carousel-caption top-0 mt-4 d-none d-md-block">
+              <h5 class="mt-4 fs-3 fw-bold text-capitalized">
+                Trouvez votre route, trouvez votre voiture
+              </h5>
+              <p class="mt-4 fs-4 text-capitalized">
+                Explorez notre plateforme pour découvrir une gamme de voitures
+                répondant à vos besoins et à votre budget.
+              </p>
+              <a href="#" class="btn btn-primary mt-5"
+                >Choisir une configuration</a
+              >
+            </div>
+          </div>
+          <div class="carousel-item c-item">
+            <img
+              src="/assets/pexels-svonhorst-2920064.jpg"
+              class="d-block w-100 c-img"
+              alt="Image 2"
+              height="100%"
+              width="100%"
+            />
+            <div class="carousel-caption top-0 mt-4 d-none d-md-block">
+              <h5 class="mt-4 fs-3 fw-bold text-capitalized">
+                Des voitures sur mesure pour votre style de vie
+              </h5>
+              <p class="mt-4 fs-4 text-capitalized">
+                Une expérience personnalisée pour trouver la voiture parfaite
+                qui s'adapte à votre mode de vie.
+              </p>
+              <a href="#" class="btn btn-primary mt-5"
+                >Choisir une configuration</a
+              >
+            </div>
+          </div>
+          <div class="carousel-item c-item">
+            <img
+              src="/assets/pexels-maltelu-1412213.jpg"
+              class="d-block w-100 c-img"
+              alt="Image 3"
+              height="100%"
+              width="100%"
+            />
+            <div class="carousel-caption top-0 mt-4 d-none d-md-block">
+              <h5 class="mt-4 fs-3 fw-bold text-capitalized">
+                Conduisez vers votre avenir, un clic à la fois.
+              </h5>
+              <p class="mt-4 fs-4 text-capitalized">
+                Explorez notre sélection de voitures conçues pour répondre à vos
+                aspirations futures.
+              </p>
+              <a href="#" class="btn btn-primary mt-5"
+                >Choisir une configuration</a
+              >
+            </div>
+          </div>
+          <div class="carousel-item c-item">
+            <img
+              src="/assets/car-engine.jpg"
+              class="d-block w-100 c-img"
+              alt="Image 4"
+              height="100%"
+              width="100%"
+            />
+            <div class="carousel-caption top-0 mt-4 d-none d-md-block">
+              <h5 class="mt-4 fs-3 fw-bold text-capitalized">
+                Votre partenaire de confiance pour chaque kilomètre.
+              </h5>
+              <p class="mt-4 fs-4 text-capitalized">
+                Nous vous accompagnons à chaque étape de votre recherche de
+                voiture, avec expertise et engagement.
+              </p>
+              <a href="#" class="btn btn-primary mt-5"
+                >Choisir une configuration</a
+              >
+            </div>
+          </div>
+          <div class="carousel-item c-item">
+            <img
+              src="/assets/pexels-asim-razan-360399.jpg"
+              class="d-block w-100 c-img"
+              alt="Image 5"
+              height="100%"
+              width="100%"
+            />
+            <div class="carousel-caption top-0 mt-4 d-none d-md-block">
+              <h5 class="mt-4 fs-3 fw-bold text-capitalized">
+                Le voyage de vos rêves commence ici.
+              </h5>
+              <p class="mt-4 fs-4 text-capitalized">
+                Embarquez dans une expérience de découverte alors que notre site
+                vous guide vers la voiture de vos rêves.
+              </p>
+              <a href="#" class="btn btn-primary mt-5"
+                >Choisir une configuration
+              </a>
+            </div>
+          </div>
+        </div>
+        <button
+          class="carousel-control-prev"
+          type="button"
+          data-bs-target="#heroCarousel"
+          data-bs-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#heroCarousel"
+          data-bs-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+      <div class="container mt-3">
+        <div class="row">
+          <div class="col-md-12">
+            <h2 class="mt-3 mb-3">Bienvenu chez CARSIM</h2>
+            <p>
+              Notre site web vous permet de trouver le modèle de voiture
+              parfaitement adapté à vos besoins et à votre budget. En quelques
+              étapes simples, vous pouvez entrer le prix que vous souhaitez
+              dépenser, ainsi que les caractéristiques spécifiques que vous
+              recherchez dans un véhicule. Notre algorithme intelligent parcourt
+              une vaste base de données de voitures pour vous présenter les
+              meilleures options correspondant à vos critères. Que vous
+              recherchiez une voiture économique pour la ville, un véhicule
+              familial spacieux, notre site vous aide à trouver la voiture
+              parfaite pour vous, en fonction de vos préférences et de votre
+              budget.
+            </p>
+            <a href="#" class="btn btn-primary mt-3 mb-3"
+              >Choisir votre configuration</a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    
+    <section id="developpers" class="developers text-bg-light mt-3" style="height: 390px" >
+      <h2 class="text-center my-3 pt-3">Notre équipe projet</h2>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="overflow-auto" style="height:320px;">
+              <div class="row row-cols-6">
+                <div class="col p-2">
+                  <div class="card">
+                    <img
+                      src="assets/Profil0.png" 
+                      class="card-img-top"
+                      alt="..."
+                    />
+                    <div class="card-body">
+                      <h5 class="card-title text-center">Belhadj Aya</h5>
+                      <p class="card-text text-center">Machine Learning</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col p-2">
+                  <div class="card">
+                    <img
+                      src="assets/Profil0.png"
+                      class="card-img-top"
+                      alt="..."
+                    />
+                    <div class="card-body">
+                      <h5 class="card-title text-center">Abbad Sarah</h5>
+                      <p class="card-text text-center">Front-end</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col p-2">
+                  <div class="card">
+                    <img
+                      src="assets/Profil0.png"
+                      class="card-img-top"
+                      alt="..."
+                    />
+                    <div class="card-body">
+                      <h5 class="card-title text-center">Habchi Lyna</h5>
+                      <p class="card-text text-center">Back-end</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col p-2">
+                  <div class="card">
+                    <img
+                      src="assets/Profil0.png"
+                      class="card-img-top"
+                      alt="..."
+                    />
+                    <div class="card-body">
+                      <h5 class="card-title text-center">Saidj Yasmine</h5>
+                      <p class="card-text text-center">Front-end</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col p-2">
+                  <div class="card">
+                    <img
+                      src="assets/Profil0.png"
+                      class="card-img-top"
+                      alt="..."
+                    />
+                    <div class="card-body">
+                      <h5 class="card-title text-center">Belakebi Rania</h5>
+                      <p class="card-text text-center">Scraping</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col p-2">
+                  <div class="card">
+                    <img
+                      src="assets/Profil0.png"
+                      class="card-img-top"
+                      alt="..."
+                    />
+                    <div class="card-body">
+                      <h5 class="card-title text-center">Boukherouba Yousra</h5>
+                      <p class="card-text text-center">Data Processing</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id ="about" class="about mt-3" style = "height:400px;">
+     
+      <div class="container" >
+        <h2 class="text-center my-5 pt-4">Conception et implémentation d'un outil d'estimation <br/>des prix des véhicules.</h2>
+        <p>
+          
+          Le projet entre dans le cadre de la science des données. il comporte plusieurs phases: 
+          
+          <br/>
+          <ol>
+              <li>
+                <b>La collecte des données : </b> principalement à travers le développement dun outil de web scraping
+                pour récupérer des données sur des plateformes ayants des données sur les prix des véhicules  
+              
+              </li>
+              <li>
+                <b>Le prétraitement de données : </b>l'état des données collectées est généralement assez médiocre et
+                nécessite un prétraitement avant qWelles soient utilisées pour entrainer des modèles de machine
+                leaming.
+              </li>
+              <li>
+                <b>L'entrainement des modèles : </b> en utilisant des bibliothèques avec des modèles de machine
+                leaming implémentés, on cherche à choisir le meilleur modèle pour l'estimation.
+              </li>
+              <li>
+                <b>Le développement dune interface graphique : </b> une interface web avec principalement un
+                formulaire pour saisir les données dun véhicule et fournir une estimation de son prix.
+              </li>
+          </ol>
+        </p>
+       
+      </div>
+    </section>
+
+    <button onclick="topFunction()" id="scrollToTopBtn" title="Go to top">
+      Top
+    </button>
+
+    <footer class="bg-dark py-5 mt-5">
+      <div class="container text-light text-center">
+        <p class="display-6 mb-3">CARSIM</p>
+        <p><a href="#">Information</a> | <a href="#">Contact Us</a></p>
+        <small class="text-white-50"
+          >&copy; Copyright by USTHB students - All rights reserved.</small
+        >
+      </div>
+    </footer>
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+    
+  </body>
+</html>
