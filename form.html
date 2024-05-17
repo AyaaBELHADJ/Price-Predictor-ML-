@@ -113,22 +113,32 @@
                </div>
                <div class="field">
                   <div class="label">Options</div>
-                  <select>
-                     <option>Climatisation</option>
-                     <option>Toit Ouvrant</option>
-                     <option>ABS</option>
-                     <option>ESP</option>
-                     <option>Radar de Recul</option>
-                     <option>Direction Assistée</option>
-                     <option>Rétroviseurs Électriques</option>
-                     <option>Phares Antibrouillard</option>
-                     <option>Radio CD</option>
-                     <option>Alarme</option>
-                     <option>Phares Xenon</option>
-                     <option>Jantes Alliage</option>
-                     <option>Feux du Jour</option>
-                     <option>Vitres Électriques</option>
-                  </select>
+                  <div class="multiselect">
+                    <div class="selectBox" onclick="showCheckboxes()">
+                     <select>
+                      <option>Select an option</option>
+                     </select>
+                     <div class="overSelect"></div>
+                    </div>
+                    <div id="checkboxes">
+                     <label><input type="checkbox" id="1"/>Climatisation</label>
+                     <label><input type="checkbox" id="2"/>Toit Ouvrant</label>
+                     <label><input type="checkbox" id="3"/>ABS</label>
+                     <label><input type="checkbox" id="4"/>ESP</label>
+                     <label><input type="checkbox" id="5"/>Radar de Recul</label>
+                     <label><input type="checkbox" id="6"/>Direction Assistée</label>
+                     <label><input type="checkbox" id="7"/>Rétroviseurs Électriques</label>
+                     <label><input type="checkbox" id="8"/>Phares Antibrouillard</label>
+                     <label><input type="checkbox" id="9"/>Radio CD</label>
+                     <label><input type="checkbox" id="10"/>Alarme</label>
+                     <label><input type="checkbox" id="11"/>Phares Xenon</label>
+                     <label><input type="checkbox" id="12"/>Jantes Alliage</label>
+                     <label><input type="checkbox" id="13"/>Feux du Jour</label>
+                     <label><input type="checkbox" id="14"/>Vitres Électriques</label>
+                     
+
+                    </div>
+                   </div>
                </div>
                <div class="field btns">
                   <button class="prev-3 prev">Previous</button>
@@ -141,11 +151,55 @@
    <div id="popup" class="popup">
       <div class="popup-content">
          <span class="close">&times;</span>
-         <p>Completed</p>
+         <p><strong>Completed</strong></p>
          <p>L'estimation de prix de votre vehicule est : xxx</p>
          <button id="ok-close">Ok, Close</button>
       </div>
    </div>
    <script src="script.js"></script>
+   <script>
+    var expanded = false;
+ 
+ function showCheckboxes() {
+   var checkboxes = document.getElementById("checkboxes");
+   var btns = document.querySelectorAll(".btns button");
+   
+   if (!expanded) {
+     checkboxes.style.display = "block";
+     expanded = true;
+     // Cacher les boutons
+     btns.forEach(btn => {
+       btn.style.display = "none";
+     });
+   } else {
+     checkboxes.style.display = "none";
+     expanded = false;
+     // Afficher les boutons
+     btns.forEach(btn => {
+       btn.style.display = "block";
+     });
+   }
+ }
+ 
+ // Ajouter un écouteur d'événements pour détecter le défilement
+ window.addEventListener('scroll', function() {
+     var multiselect = document.querySelector('.multiselect');
+     var selectBox = document.querySelector('.selectBox');
+     var overSelect = document.querySelector('.overSelect');
+     
+     // Vérifier si la boîte de sélection est dans la vue
+     var multiselectPosition = multiselect.getBoundingClientRect();
+     if (multiselectPosition.top >= 0 && multiselectPosition.bottom <= window.innerHeight) {
+         // Si elle est dans la vue, afficher les options
+         showCheckboxes();
+     } else {
+         // Sinon, masquer les options
+         var checkboxes = document.getElementById("checkboxes");
+         checkboxes.style.display = "none";
+         expanded = false;
+     }
+ });
+ </script>
+ 
 </body>
 </html>

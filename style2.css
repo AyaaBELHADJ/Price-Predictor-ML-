@@ -279,3 +279,31 @@ form .page .btns button.next {
   color: white;
 }
 
+.multiselect {
+  width:200px;
+ }
+ .selectBox {
+  position:relative;
+ }
+ .selectBox select {
+  width: 100%;
+  font-weight: bold;
+ }
+ .overSelect {
+  position: absolute;
+  left:0; right:0; top:0; bottom:0;
+ }
+ #checkboxes {
+  display: none;
+  border: 1px #dadada solid;
+  position: relative; /* Ajoutez cette ligne */
+  max-height: 150px; /* Ajoutez cette ligne pour activer le défilement si nécessaire */
+  overflow-y: auto; /* Ajoutez cette ligne pour activer le défilement vertical si nécessaire */
+ }
+ #checkboxes label {
+  display: block;
+ }
+ #checkboxes label:hover {
+  background-color: #1e90ff;
+ }
+ 
