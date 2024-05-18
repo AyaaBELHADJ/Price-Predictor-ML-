@@ -85,7 +85,11 @@ for page_number in range(START_PAGE, END_PAGE):
     list_data = response.json()
 
     ### get product ids with price
-    product_ids_with_price = [product['id'] for product in list_data['data']['search']['announcements']['data'] if product.get('price') is not None ]
+    product_ids_with_price = []
+    for product in list_data['data']['search']['announcements']['data']:
+        if product.get('price') is not None:  # Check if product has price
+            product_ids_with_price.append(product['id'])
+
     print(f'Number of cars with price found on the page: {len(product_ids_with_price)}')
 
     ### loop through the product ids
