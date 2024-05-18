@@ -8,40 +8,12 @@
     <link rel="stylesheet" href="css/style.css" />
   </head>
 
-  <script>
-    // script.js
-
-    document.addEventListener("DOMContentLoaded", function () {
-      // Fonction pour afficher le bouton lorsque l'utilisateur fait défiler vers le bas
-      window.onscroll = function () {
-        scrollFunction();
-      };
-
-      function scrollFunction() {
-        if (
-          document.body.scrollTop > 20 ||
-          document.documentElement.scrollTop > 20
-        ) {
-          document.getElementById("scrollToTopBtn").style.display = "block";
-        } else {
-          document.getElementById("scrollToTopBtn").style.display = "none";
-        }
-      }
-
-      // Fonction pour remonter en haut de la page lorsque le bouton est cliqué
-      function topFunction() {
-        document.body.scrollTop = 0; // Pour les navigateurs Safari
-        document.documentElement.scrollTop = 0; // Pour les autres navigateurs
-      }
-    });
-  </script>
-
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="container">
         <a class="navbar-brand mt-2" href="#">
           <img
-            src="assets/Logo.png"
+            src="assets/p8.png"
             alt="Logo"
             width="45"
             height="40"
@@ -49,6 +21,12 @@
           />
           CARSIM
         </a>
+        <div class="container text-center mt-5">
+          <div class="logo-container">
+              <div class="logo-car">CAR</div>
+              <div class="logo-sim">SIM</div>
+          </div>
+        </div>
         <button
           class="navbar-toggler"
           type="button"
@@ -66,7 +44,7 @@
               <a class="nav-link active" aria-current="page" href="#">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#developpers">Team</a>
+              <a class="nav-link" href="#developer">Team</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#about">About</a>
@@ -116,7 +94,7 @@
         <div class="carousel-inner">
           <div class="carousel-item active c-item">
             <img
-              src="/assets/pexels-instawally-191238.jpg"
+              src="/assets/pexels-svonhorst-2920064.jpg"
               class="d-block w-100 c-img"
               alt="Image 1"
               height="100%"
@@ -130,14 +108,14 @@
                 Explorez notre plateforme pour découvrir une gamme de voitures
                 répondant à vos besoins et à votre budget.
               </p>
-              <a href="#" class="btn btn-primary mt-5"
+              <a href="#" class="btn btn-danger mt-5"
                 >Choisir une configuration</a
               >
             </div>
           </div>
           <div class="carousel-item c-item">
             <img
-              src="/assets/pexels-svonhorst-2920064.jpg"
+              src="/assets/philipp-katzenberger-YVkB4W1HRv4-unsplash.jpg"
               class="d-block w-100 c-img"
               alt="Image 2"
               height="100%"
@@ -151,14 +129,14 @@
                 Une expérience personnalisée pour trouver la voiture parfaite
                 qui s'adapte à votre mode de vie.
               </p>
-              <a href="#" class="btn btn-primary mt-5"
+              <a href="#" class="btn btn-danger mt-5"
                 >Choisir une configuration</a
               >
             </div>
           </div>
           <div class="carousel-item c-item">
             <img
-              src="/assets/pexels-maltelu-1412213.jpg"
+              src="/assets/tabea-schimpf-O7WzqmeYoqc-unsplash.jpg"
               class="d-block w-100 c-img"
               alt="Image 3"
               height="100%"
@@ -172,7 +150,7 @@
                 Explorez notre sélection de voitures conçues pour répondre à vos
                 aspirations futures.
               </p>
-              <a href="#" class="btn btn-primary mt-5"
+              <a href="#" class="btn btn-danger mt-5"
                 >Choisir une configuration</a
               >
             </div>
@@ -193,14 +171,14 @@
                 Nous vous accompagnons à chaque étape de votre recherche de
                 voiture, avec expertise et engagement.
               </p>
-              <a href="#" class="btn btn-primary mt-5"
+              <a href="#" class="btn btn-danger mt-5"
                 >Choisir une configuration</a
               >
             </div>
           </div>
           <div class="carousel-item c-item">
             <img
-              src="/assets/pexels-asim-razan-360399.jpg"
+              src="/assets/klim-musalimov-VncoP6xI57k-unsplash.jpg"
               class="d-block w-100 c-img"
               alt="Image 5"
               height="100%"
@@ -214,7 +192,7 @@
                 Embarquez dans une expérience de découverte alors que notre site
                 vous guide vers la voiture de vos rêves.
               </p>
-              <a href="#" class="btn btn-primary mt-5"
+              <a href="#" class="btn btn-danger mt-5"
                 >Choisir une configuration
               </a>
             </div>
@@ -256,156 +234,209 @@
               parfaite pour vous, en fonction de vos préférences et de votre
               budget.
             </p>
-            <a href="#" class="btn btn-primary mt-3 mb-3"
+            <a href="#" class="btn btn-danger mt-3 mb-3"
               >Choisir votre configuration</a
             >
           </div>
         </div>
       </div>
     </section>
-    
-    
-    <section id="developpers" class="developers text-bg-light mt-3" style="height: 390px" >
-      <h2 class="text-center my-3 pt-3">Notre équipe projet</h2>
+
+    <section id="about" class="about text-bg-light p-4" style="height: auto">
       <div class="container">
+        <h2 class="text-center my-4">
+          Conception et implémentation d'un outil d'estimation <br />des prix
+          des véhicules.
+        </h2>
         <div class="row">
-          <div class="col-lg-12">
-            <div class="overflow-auto" style="height:320px;">
-              <div class="row row-cols-6">
-                <div class="col p-2">
-                  <div class="card">
-                    <img
-                      src="assets/Profil0.png" 
-                      class="card-img-top"
-                      alt="..."
-                    />
-                    <div class="card-body">
-                      <h5 class="card-title text-center">Belhadj Aya</h5>
-                      <p class="card-text text-center">Machine Learning</p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col p-2">
-                  <div class="card">
-                    <img
-                      src="assets/Profil0.png"
-                      class="card-img-top"
-                      alt="..."
-                    />
-                    <div class="card-body">
-                      <h5 class="card-title text-center">Abbad Sarah</h5>
-                      <p class="card-text text-center">Front-end</p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col p-2">
-                  <div class="card">
-                    <img
-                      src="assets/Profil0.png"
-                      class="card-img-top"
-                      alt="..."
-                    />
-                    <div class="card-body">
-                      <h5 class="card-title text-center">Habchi Lyna</h5>
-                      <p class="card-text text-center">Back-end</p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col p-2">
-                  <div class="card">
-                    <img
-                      src="assets/Profil0.png"
-                      class="card-img-top"
-                      alt="..."
-                    />
-                    <div class="card-body">
-                      <h5 class="card-title text-center">Saidj Yasmine</h5>
-                      <p class="card-text text-center">Front-end</p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col p-2">
-                  <div class="card">
-                    <img
-                      src="assets/Profil0.png"
-                      class="card-img-top"
-                      alt="..."
-                    />
-                    <div class="card-body">
-                      <h5 class="card-title text-center">Belakebi Rania</h5>
-                      <p class="card-text text-center">Scraping</p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col p-2">
-                  <div class="card">
-                    <img
-                      src="assets/Profil0.png"
-                      class="card-img-top"
-                      alt="..."
-                    />
-                    <div class="card-body">
-                      <h5 class="card-title text-center">Boukherouba Yousra</h5>
-                      <p class="card-text text-center">Data Processing</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
+          
+          <div class="col-md-4">
+            <div class="text-center mt-2 mb-3">
+              <img
+                src="/assets/pexels-fauxels-3183153.jpg"
+                class="img-fluid rounded mx-auto d-block img-thumbnail img_about"
+                alt="..."
+                style="height: 200px; width: 400px"
+              />
+            </div>
+                        
+          </div>
+          <div class="col-md-8">
+            <div class="text-left mt-3 mb-3 d-flex justify-content-center">
+              <ul>
+                <li>
+                  <b>La collecte des données :</b> principalement à travers le
+                  développement d'un outil de web scraping pour récupérer des
+                  données sur des plateformes ayant des données sur les prix des
+                  véhicules.
+                </li>
+                <li>
+                  <b>Le prétraitement de données :</b> l'état des données
+                  collectées est généralement assez médiocre et nécessite un
+                  prétraitement avant qu'elles soient utilisées pour entraîner des
+                  modèles de machine learning.
+                </li>
+              </ul>
+            </div>
+          </div>
+          
+        </div>
+        <div class="row">
+          <div class="col-md-8">
+            <div class="text-left mt-3 mb-3 d-flex justify-content-center ">
+
+              <ul start="3">
+                <li>
+                  <b>L'entrainement des modèles :</b> en utilisant des
+                  bibliothèques avec des modèles de machine learning implémentés,
+                  on cherche à choisir le meilleur modèle pour l'estimation.
+                </li>
+                <li>
+                  <b>Le développement d'une interface graphique :</b> une
+                  interface web avec principalement un formulaire pour saisir les
+                  données d'un véhicule et fournir une estimation de son prix.
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="text-center mt-2 mb-3">
+              <img 
+                src="assets/about2.PNG"
+                class="img-fluid rounded mx-auto d-block img-thumbnail img_about"
+                alt="..."
+                style="height: 200px; width: 400px"
+              />
+            </div>
+          </div>
+      </div>
+    </section>
+
+    <section id="developer" class="developer mt-5" style="height: auto">
+      <h2 class="text-center my-3 pt-3">Notre équipe projet</h2>
+      <div class="section__container developer__container">
+        <div class="developer__grid">
+          <div class="developer__card">
+            <img src="assets/Profil0.png" class="card-img-top" alt="..." />
+            <div class="card-body">
+              <h5 class="card-title text-center">Belhadj Aya</h5>
+              <p class="card-text text-center">Machine Learning</p>
+            </div>
+          </div>
+          <div class="developer__card">
+            <img src="assets/sarah.png" class="card-img-top" alt="..." />
+            <div class="card-body">
+              <h5 class="card-title text-center">Abbad Sarah</h5>
+              <p class="card-text text-center">Front-end</p>
+            </div>
+          </div>
+          <div class="developer__card">
+            <img src="assets/lyna.PNG" class="card-img-top" alt="..." />
+            <div class="card-body">
+              <h5 class="card-title text-center">Habchi Lyna</h5>
+              <p class="card-text text-center">Back-end</p>
+            </div>
+          </div>
+          <div class="developer__card">
+            <img src="assets/yasmine.PNG" class="card-img-top" alt="..." />
+            <div class="card-body">
+              <h5 class="card-title text-center">Saidj Yasmine</h5>
+              <p class="card-text text-center">Front-end</p>
+            </div>
+          </div>
+          <div class="developer__card">
+            <img src="assets/rania.png" class="card-img-top" alt="..." />
+            <div class="card-body">
+              <h5 class="card-title text-center">Belakebi Rania</h5>
+              <p class="card-text text-center">Scraping</p>
+            </div>
+          </div>
+          <div class="developer__card">
+            <img src="assets/Profil0.png" class="card-img-top" alt="..." />
+            <div class="card-body">
+              <h5 class="card-title text-center">Boukherouba Yousra</h5>
+              <p class="card-text text-center">Data Processing</p>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section id ="about" class="about mt-3" style = "height:400px;">
-     
-      <div class="container" >
-        <h2 class="text-center my-5 pt-4">Conception et implémentation d'un outil d'estimation <br/>des prix des véhicules.</h2>
-        <p>
-          
-          Le projet entre dans le cadre de la science des données. il comporte plusieurs phases: 
-          
-          <br/>
-          <ol>
-              <li>
-                <b>La collecte des données : </b> principalement à travers le développement dun outil de web scraping
-                pour récupérer des données sur des plateformes ayants des données sur les prix des véhicules  
-              
-              </li>
-              <li>
-                <b>Le prétraitement de données : </b>l'état des données collectées est généralement assez médiocre et
-                nécessite un prétraitement avant qWelles soient utilisées pour entrainer des modèles de machine
-                leaming.
-              </li>
-              <li>
-                <b>L'entrainement des modèles : </b> en utilisant des bibliothèques avec des modèles de machine
-                leaming implémentés, on cherche à choisir le meilleur modèle pour l'estimation.
-              </li>
-              <li>
-                <b>Le développement dune interface graphique : </b> une interface web avec principalement un
-                formulaire pour saisir les données dun véhicule et fournir une estimation de son prix.
-              </li>
-          </ol>
-        </p>
-       
+    <section id="contact" class="container mt-5 text-bg-light p-4">
+      <h2 class="text-center mb-4">Contactez-nous</h2>
+
+      <div class="row">
+        <div class="col-md-12">
+          <form id="contactForm">
+            <div class="mb-3">
+              <label for="name" class="form-label">Nom:</label>
+              <input
+                type="text"
+                class="form-control"
+                id="name"
+                placeholder="Entrer votre nom"
+              />
+            </div>
+
+            <div class="mb-3">
+              <label for="email" class="form-label">Email:</label>
+              <input
+                type="email"
+                class="form-control"
+                id="email"
+                placeholder="Entrer votre email"
+              />
+            </div>
+
+            <div class="mb-3">
+              <label for="subjet" class="form-label">Subjet:</label>
+              <input
+                type="text"
+                class="form-control"
+                id="subject"
+                placeholder="Entrer votre subjet"
+              />
+            </div>
+
+            <div class="mb-3">
+              <label for="message" class="form-label">Message:</label>
+              <textarea
+                class="form-control"
+                id="message"
+                rows="3"
+                placeholder="Entrer votre message"
+              ></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-danger">Envoyer</button>
+          </form>
+        </div>
       </div>
     </section>
 
-    <button onclick="topFunction()" id="scrollToTopBtn" title="Go to top">
+    <button
+      onclick="window.location.href='index.html'"
+      id="scrollToTopBtn"
+      title="Go to top"
+    >
       Top
     </button>
 
     <footer class="bg-dark py-5 mt-5">
       <div class="container text-light text-center">
         <p class="display-6 mb-3">CARSIM</p>
-        <p><a href="#">Information</a> | <a href="#">Contact Us</a></p>
+        <p>
+          <a href="#about">Information</a> | <a href="#contact">Contact Us</a>
+        </p>
         <small class="text-white-50"
-          >&copy; Copyright by USTHB students - All rights reserved.</small
+          >&copy; Copyright by USTHB students - Section A - All rights
+          reserved.</small
         >
       </div>
     </footer>
 
     <script src="js/bootstrap.bundle.min.js"></script>
-    
+    <script src="js/script.js"></script>
   </body>
 </html>

@@ -1,66 +1,97 @@
 /* styles.css */
 .navbar-custom {
-    background-color: black;
+  background-color: black;
 }
 
 .c-item {
-    height:380px;
+  height:380px;
 }
 
 .c-img {
-    height: 100%;
-    object-fit: cover;
-    filter: brightness(0.6);
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.6);
 }
+
 
 /* Hero */
 .hero {
-    margin: 5px;
-    padding: 10px;
+  margin: 5px;
+  padding: 10px;
 }
 
 .hero h1 {
-    margin: 20px;
+  margin: 20px;
 }
 
 .brands {
-    margin: 20px;
-    padding: 10px;
+  margin: 20px;
+  padding: 10px;
 }
 .footer {
-    background-color: black;
-}
-  
-.card{
-      margin: 0 .5em;
-      width: 180px;
-      height: 280px;
-      padding:3px;
-      /* height: 290px; */
-      border-radius: 4px;
-  }
+  background-color: black;
+}  
 
-  .card img{
-      width: 155px;
-      height: 160px;
-  }
-  
- 
+.developer__container {
+  text-align: center;
+}
+
+.developer__grid {
+  margin-top: 1rem;
+  display: grid;
+  gap: 4rem 2rem;
+}
+
+.developer__card img {
+  max-width: 120px;
+  margin-inline: auto;
+  margin-bottom: 1rem;
+  border-radius: 100%;
+  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.2);
+}
+
+.section__container {
+  max-width: 100%;
+  margin: auto;
+  padding: 1rem 1rem;
+}
+
+
 #scrollToTopBtn {
-    display: none; 
-    position: fixed;
-    bottom: 20px; 
-    right: 20px; 
-    z-index: 99; 
-    border: none; 
-    outline: none;
-    background-color: #007bff; 
-    color: white; 
-    cursor: pointer; 
-    padding: 15px; 
-    border-radius: 50%; 
+  display: none; 
+  position: fixed;
+  bottom: 20px; 
+  right: 20px; 
+  z-index: 99; 
+  border: none; 
+  outline: none;
+  background-color: #bb2d3b; 
+  color: white; 
+  cursor: pointer; 
+  padding: 15px; 
+  border-radius: 50%; 
 }
 
 #scrollToTopBtn:hover {
-    background-color: #0056b3; 
+  background-color: #2a2a28; 
+  color: white; 
 }
+
+@media (width > 480px) {
+  .develoer__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (width > 768px) {
+  .developer__grid {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+.img_about {
+  box-shadow: -8px 7px 15px -1px rgba(0,0,0,0.6);
+  -webkit-box-shadow: -8px 7px 15px -1px rgba(0,0,0,0.6);
+  -moz-box-shadow: -8px 7px 15px -1px rgba(0,0,0,0.6);
+}
+
