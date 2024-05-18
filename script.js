@@ -4,8 +4,43 @@ document.addEventListener('DOMContentLoaded', () => {
   const closeBtn = document.querySelector('.close');
   const okCloseBtn = document.getElementById('ok-close');
 
-  submitButton.addEventListener('click', function(event) {
+  submitButton.addEventListener('click', async function(event) {
      event.preventDefault();
+  // Collecte les données du formulaire
+  const form = document.getElementById('vehicle-form');
+  const formData = new FormData(form);
+  //convertion de formData en objet js 
+  const data = Object.fromEntries(formData.entries());
+  //Récupération des options sélectionnées :
+  const options = formData.getAll('options');
+  data.options = options;
+
+  //Envoi des données vers le serveur :
+  try {
+    const response = await fetch('/estimation', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    });
+//Traitement de la réponse :
+    const result = await response.json();
+    document.querySelector('#popup p:nth-child(3)').innerText = `L'estimation de prix de votre véhicule est : ${result.estimation}`;
+    popup.style.display = 'block';
+  } catch (error) {
+    console.error('Error:', error);
+  }
+//Gestion de la fermeture du popup
+
+closeBtn.addEventListener('click', () => {
+  popup.style.display = 'none';
+});
+
+okCloseBtn.addEventListener('click', () => {
+  popup.style.display = 'none';
+}); //fin 
+
      popup.style.display = 'block';
   });
 
@@ -114,3 +149,45 @@ overlay.addEventListener("click", () => {
 closeBtn.addEventListener("click", () => {
   section.classList.remove("active");
 });
+var expanded = false;
+ 
+function showCheckboxes() {
+  var checkboxes = document.getElementById("checkboxes");
+  var btns = document.querySelectorAll(".btns button");
+  
+  if (!expanded) {
+    checkboxes.style.display = "block";
+    expanded = true;
+    // Cacher les boutons
+    btns.forEach(btn => {
+      btn.style.display = "none";
+    });
+  } else {
+    checkboxes.style.display = "none";
+    expanded = false;
+    // Afficher les boutons
+    btns.forEach(btn => {
+      btn.style.display = "block";
+    });
+  }
+}
+
+// Ajouter un écouteur d'événements pour détecter le défilement
+window.addEventListener('scroll', function() {
+    var multiselect = document.querySelector('.multiselect');
+    var selectBox = document.querySelector('.selectBox');
+    var overSelect = document.querySelector('.overSelect');
+    
+    // Vérifier si la boîte de sélection est dans la vue
+    var multiselectPosition = multiselect.getBoundingClientRect();
+    if (multiselectPosition.top >= 0 && multiselectPosition.bottom <= window.innerHeight) {
+        // Si elle est dans la vue, afficher les options
+        showCheckboxes();
+    } else {
+        // Sinon, masquer les options
+        var checkboxes = document.getElementById("checkboxes");
+        checkboxes.style.display = "none";
+        expanded = false;
+    }
+});
+

@@ -11,14 +11,14 @@
       <header>Estimez le prix de votre véhicule</header>
       <div class="progress-bar">
          <div class="step">
-            <p>général</p>
+            <p>Général</p>
             <div class="bullet">
                <span>1</span>
             </div>
             <div class="check fas fa-check"></div>
          </div>
          <div class="step">
-            <p>performance</p>
+            <p>Performance</p>
             <div class="bullet">
                <span>2</span>
             </div>
@@ -40,20 +40,20 @@
          </div>
       </div>
       <div class="form-outer">
-         <form action="#">
+         <form id="vehicle-form" action="#">
             <div class="page slide-page">
                <div class="title">Généralités :</div>
                <div class="field">
                   <div class="label">Marque</div>
-                  <input type="text">
+                  <input type="text" name="make">
                </div>
                <div class="field">
                   <div class="label">Modèle</div>
-                  <input type="text">
+                  <input type="text" name="model">
                </div>
                <div class="field">
                   <div class="label">Année</div>
-                  <input type="text">
+                  <input type="text" name="year">
                </div>
                <div class="field">
                   <button class="firstNext next">Next</button>
@@ -63,15 +63,15 @@
                <div class="title">Performance :</div>
                <div class="field">
                   <div class="label">Moteur</div>
-                  <input type="text">
+                  <input type="text" name="engine">
                </div>
                <div class="field">
                   <div class="label">Kilométrage</div>
-                  <input type="text">
+                  <input type="text" name="mileage">
                </div>
                <div class="field">
                   <div class="label">Énergie</div>
-                  <input type="number">
+                  <input type="text" name="fuel">
                </div>
                <div class="field btns">
                   <button class="prev-1 prev">Previous</button>
@@ -82,18 +82,18 @@
                <div class="title">Détails Techniques :</div>
                <div class="field">
                   <div class="label">Couleur</div>
-                  <input type="text">
+                  <input type="text" name="color">
                </div>
                <div class="field">
                   <div class="label">Finition</div>
-                  <input type="text">
+                  <input type="text" name="trim">
                </div>
                <div class="field">
                   <div class="label">Boîte</div>
-                  <select>
-                     <option>Manuelle</option>
-                     <option>Automatique</option>
-                     <option>Séquentielle</option>
+                  <select name="transmission">
+                     <option value="manual">Manuelle</option>
+                     <option value="automatic">Automatique</option>
+                     <option value="sequential">Séquentielle</option>
                   </select>
                </div>
                <div class="field btns">
@@ -105,10 +105,10 @@
                <div class="title">Documents :</div>
                <div class="field">
                   <div class="label">Papier</div>
-                  <select>
-                     <option>Carte Grise / Safia</option>
-                     <option>Licence / Délai</option>
-                     <option>Carte Jaune</option>
+                  <select name="paperwork">
+                     <option value="carte_grise">Carte Grise / Safia</option>
+                     <option value="licence">Licence / Délai</option>
+                     <option value="carte_jaune">Carte Jaune</option>
                   </select>
                </div>
                <div class="field">
@@ -121,22 +121,20 @@
                      <div class="overSelect"></div>
                     </div>
                     <div id="checkboxes">
-                     <label><input type="checkbox" id="1"/>Climatisation</label>
-                     <label><input type="checkbox" id="2"/>Toit Ouvrant</label>
-                     <label><input type="checkbox" id="3"/>ABS</label>
-                     <label><input type="checkbox" id="4"/>ESP</label>
-                     <label><input type="checkbox" id="5"/>Radar de Recul</label>
-                     <label><input type="checkbox" id="6"/>Direction Assistée</label>
-                     <label><input type="checkbox" id="7"/>Rétroviseurs Électriques</label>
-                     <label><input type="checkbox" id="8"/>Phares Antibrouillard</label>
-                     <label><input type="checkbox" id="9"/>Radio CD</label>
-                     <label><input type="checkbox" id="10"/>Alarme</label>
-                     <label><input type="checkbox" id="11"/>Phares Xenon</label>
-                     <label><input type="checkbox" id="12"/>Jantes Alliage</label>
-                     <label><input type="checkbox" id="13"/>Feux du Jour</label>
-                     <label><input type="checkbox" id="14"/>Vitres Électriques</label>
-                     
-
+                     <label><input type="checkbox" name="options" value="climatisation"/>Climatisation</label>
+                     <label><input type="checkbox" name="options" value="toit_ouvrant"/>Toit Ouvrant</label>
+                     <label><input type="checkbox" name="options" value="abs"/>ABS</label>
+                     <label><input type="checkbox" name="options" value="esp"/>ESP</label>
+                     <label><input type="checkbox" name="options" value="radar_de_recul"/>Radar de Recul</label>
+                     <label><input type="checkbox" name="options" value="direction_assistee"/>Direction Assistée</label>
+                     <label><input type="checkbox" name="options" value="retroviseurs_electriques"/>Rétroviseurs Électriques</label>
+                     <label><input type="checkbox" name="options" value="phares_antibrouillard"/>Phares Antibrouillard</label>
+                     <label><input type="checkbox" name="options" value="radio_cd"/>Radio CD</label>
+                     <label><input type="checkbox" name="options" value="alarme"/>Alarme</label>
+                     <label><input type="checkbox" name="options" value="phares_xenon"/>Phares Xenon</label>
+                     <label><input type="checkbox" name="options" value="jantes_alliage"/>Jantes Alliage</label>
+                     <label><input type="checkbox" name="options" value="feux_du_jour"/>Feux du Jour</label>
+                     <label><input type="checkbox" name="options" value="vitres_electriques"/>Vitres Électriques</label>
                     </div>
                    </div>
                </div>
@@ -156,50 +154,6 @@
          <button id="ok-close">Ok, Close</button>
       </div>
    </div>
-   <script src="script.js"></script>
-   <script>
-    var expanded = false;
- 
- function showCheckboxes() {
-   var checkboxes = document.getElementById("checkboxes");
-   var btns = document.querySelectorAll(".btns button");
-   
-   if (!expanded) {
-     checkboxes.style.display = "block";
-     expanded = true;
-     // Cacher les boutons
-     btns.forEach(btn => {
-       btn.style.display = "none";
-     });
-   } else {
-     checkboxes.style.display = "none";
-     expanded = false;
-     // Afficher les boutons
-     btns.forEach(btn => {
-       btn.style.display = "block";
-     });
-   }
- }
- 
- // Ajouter un écouteur d'événements pour détecter le défilement
- window.addEventListener('scroll', function() {
-     var multiselect = document.querySelector('.multiselect');
-     var selectBox = document.querySelector('.selectBox');
-     var overSelect = document.querySelector('.overSelect');
-     
-     // Vérifier si la boîte de sélection est dans la vue
-     var multiselectPosition = multiselect.getBoundingClientRect();
-     if (multiselectPosition.top >= 0 && multiselectPosition.bottom <= window.innerHeight) {
-         // Si elle est dans la vue, afficher les options
-         showCheckboxes();
-     } else {
-         // Sinon, masquer les options
-         var checkboxes = document.getElementById("checkboxes");
-         checkboxes.style.display = "none";
-         expanded = false;
-     }
- });
- </script>
- 
+<script src="script.js"></script>
 </body>
 </html>
