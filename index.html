@@ -8,12 +8,37 @@
     <link rel="stylesheet" href="css/style.css" />
   </head>
 
+  <script>
+
+    document.addEventListener("DOMContentLoaded", function () {
+      
+      window.onscroll = function () {
+        scrollFunction();
+       
+      };
+
+      function scrollFunction() {
+        if (
+          document.body.scrollTop > 20 ||
+          document.documentElement.scrollTop > 20
+        ) {
+          document.getElementById("scrollToTopBtn").style.display = "block";
+        } else {
+          document.getElementById("scrollToTopBtn").style.display = "none";
+        }
+      }
+
+    });
+
+  </script>
+
   <body>
+ 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="container">
         <a class="navbar-brand mt-2" href="#">
           <img
-            src="assets/p8.png"
+            src="assets/p8.PNG"
             alt="Logo"
             width="45"
             height="40"
@@ -21,7 +46,6 @@
           />
           CARSIM
         </a>
-      
         <button
           class="navbar-toggler"
           type="button"
@@ -111,6 +135,7 @@
           <div class="carousel-item c-item">
             <img
               src="/assets/philipp-katzenberger-YVkB4W1HRv4-unsplash.jpg"
+              
               class="d-block w-100 c-img"
               alt="Image 2"
               height="100%"
@@ -236,7 +261,7 @@
         </div>
       </div>
     </section>
-
+    
     <section id="about" class="about text-bg-light p-4" style="height: auto">
       <div class="container">
         <h2 class="text-center my-4">
@@ -308,47 +333,71 @@
       </div>
     </section>
 
-    <section id="developer" class="developer mt-5" style="height: auto">
+    <section id="developer" class="developer mt-5" style="height: auto" >
       <h2 class="text-center my-3 pt-3">Notre équipe projet</h2>
       <div class="section__container developer__container">
         <div class="developer__grid">
           <div class="developer__card">
-            <img src="assets/aya.jpg" class="card-img-top" alt="..." />
+            <img
+              src="assets/aya.jpg" 
+              class="card-img-top"
+              alt="..."
+            />
             <div class="card-body">
               <h5 class="card-title text-center">Belhadj Aya</h5>
               <p class="card-text text-center">Machine Learning</p>
             </div>
           </div>
           <div class="developer__card">
-            <img src="assets/sarah.png" class="card-img-top" alt="..." />
+            <img
+              src="assets/sarah.png"
+              class="card-img-top"
+              alt="..."
+            />
             <div class="card-body">
               <h5 class="card-title text-center">Abbad Sarah</h5>
               <p class="card-text text-center">Front-end</p>
             </div>
           </div>
           <div class="developer__card">
-            <img src="assets/lyna.PNG" class="card-img-top" alt="..." />
+            <img
+              src="assets/lyna.PNG"
+              class="card-img-top"
+              alt="..."
+            />
             <div class="card-body">
               <h5 class="card-title text-center">Habchi Lyna</h5>
               <p class="card-text text-center">Back-end</p>
             </div>
           </div>
           <div class="developer__card">
-            <img src="assets/yasmine.PNG" class="card-img-top" alt="..." />
+            <img
+              src="assets/yasmine.PNG"
+              class="card-img-top"
+              alt="..."
+            />
             <div class="card-body">
               <h5 class="card-title text-center">Saidj Yasmine</h5>
               <p class="card-text text-center">Front-end</p>
             </div>
           </div>
           <div class="developer__card">
-            <img src="assets/rania.png" class="card-img-top" alt="..." />
+            <img
+              src="assets/rania.png"
+              class="card-img-top"
+              alt="..."
+            />
             <div class="card-body">
               <h5 class="card-title text-center">Belakebi Rania</h5>
               <p class="card-text text-center">Scraping</p>
             </div>
           </div>
           <div class="developer__card">
-            <img src="assets/Profil0.png" class="card-img-top" alt="..." />
+            <img
+              src="assets/Profil0.png"
+              class="card-img-top"
+              alt="..."
+            />
             <div class="card-body">
               <h5 class="card-title text-center">Boukherouba Yousra</h5>
               <p class="card-text text-center">Data Processing</p>
@@ -356,82 +405,73 @@
           </div>
         </div>
       </div>
+    
     </section>
 
     <section id="contact" class="container mt-5 text-bg-light p-4">
       <h2 class="text-center mb-4">Contactez-nous</h2>
-
+    
       <div class="row">
         <div class="col-md-12">
+    
+          <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="successModalLabel">Information</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  Message envoyé avec succès
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-danger" data-bs-dismiss="modal">OK</button>
+                </div>
+              </div>
+            </div>
+          </div>
+    
           <form id="contactForm">
             <div class="mb-3">
               <label for="name" class="form-label">Nom:</label>
-              <input
-                type="text"
-                class="form-control"
-                id="name"
-                placeholder="Entrer votre nom"
-              />
+              <input type="text" class="form-control" id="name" placeholder="Entrer votre nom" />
             </div>
-
+    
             <div class="mb-3">
               <label for="email" class="form-label">Email:</label>
-              <input
-                type="email"
-                class="form-control"
-                id="email"
-                placeholder="Entrer votre email"
-              />
+              <input type="email" class="form-control" id="email" placeholder="Entrer votre email" />
             </div>
-
+    
             <div class="mb-3">
-              <label for="subjet" class="form-label">Subjet:</label>
-              <input
-                type="text"
-                class="form-control"
-                id="subject"
-                placeholder="Entrer votre subjet"
-              />
+              <label for="subject" class="form-label">Sujet:</label>
+              <input type="text" class="form-control" id="subject" placeholder="Entrer votre sujet" />
             </div>
-
+    
             <div class="mb-3">
               <label for="message" class="form-label">Message:</label>
-              <textarea
-                class="form-control"
-                id="message"
-                rows="3"
-                placeholder="Entrer votre message"
-              ></textarea>
+              <textarea class="form-control" id="message" rows="3" placeholder="Entrer votre message"></textarea>
             </div>
-
+    
             <button type="submit" class="btn btn-danger">Envoyer</button>
           </form>
+          
         </div>
       </div>
     </section>
-
-    <button
-      onclick="window.location.href='index.html'"
-      id="scrollToTopBtn"
-      title="Go to top"
-    >
-      Top
-    </button>
-
+    <button onclick="window.location.href='index.html'" id="scrollToTopBtn" title="Go to top">Top</button>
+  
     <footer class="bg-dark py-5 mt-5">
       <div class="container text-light text-center">
         <p class="display-6 mb-3">CARSIM</p>
-        <p>
-          <a href="#about">Information</a> | <a href="#contact">Contact Us</a>
-        </p>
+        <p><a href="#about">Information</a> | <a href="#contact">Contact Us</a></p>
         <small class="text-white-50"
-          >&copy; Copyright by USTHB students - Section A - All rights
-          reserved.</small
+          >&copy; Copyright by USTHB students - Section A - All rights reserved.</small
         >
       </div>
     </footer>
 
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/script.js"></script>
+    
   </body>
 </html>
