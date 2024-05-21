@@ -1,0 +1,31 @@
+from django.db import models
+
+class Voiture(models.Model):
+    
+    price = models.DecimalField(max_digits=10, decimal_places=2)
+    annee = models.IntegerField()
+    moteur  = models.CharField(max_length=255)
+    couleur = models.CharField(max_length=255)
+    papiers = models.CharField(max_length=255)
+    kilometrage = models.IntegerField()
+    marque = models.CharField(max_length=255)
+    modele = models.CharField(max_length=255)
+    finition = models.CharField(max_length=255)
+    energie = models.CharField(max_length=255)
+    boite = models.CharField(max_length=255)
+
+    Climatisation           = models.BooleanField(default=False)
+    toit_ouvrant            = models.BooleanField(default=False)
+    ABS                     = models.BooleanField(default=False)
+    ESP                     = models.BooleanField(default=False)
+    Radare_de_recule        = models.BooleanField(default=False)
+    Direction               = models.BooleanField(default=False)
+    assiste                 = models.BooleanField(default=False)
+    Retroviseurs            = models.BooleanField(default=False)
+    Phares_antibrouillard   = models.BooleanField(default=False)
+    Radio_cd                = models.BooleanField(default=False)
+    Alarme                  = models.BooleanField(default=False)
+    Phare_xenon             = models.BooleanField(default=False)
+    Jantes_Alliage          = models.BooleanField(default=False)
+    Feux_du_jour            = models.BooleanField(default=False)
+    Vitres_electistique     = models.BooleanField(default=False)
