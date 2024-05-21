@@ -190,4 +190,17 @@ window.addEventListener('scroll', function() {
         expanded = false;
     }
 });
+//lerreur de lannee 
+document.getElementById('yearInput').addEventListener('blur', function() {
+  var year = parseInt(this.value);
+  var errorYear = document.getElementById('errorYear');
+  
+  if (year > 2025) {
+      this.classList.add('error'); // Ajoute la classe "error" à l'élément
+      errorYear.style.display = 'block';
+  } else {
+      this.classList.remove('error'); // Supprime la classe "error" de l'élément
+      errorYear.style.display = 'none';
+  }
+});
 

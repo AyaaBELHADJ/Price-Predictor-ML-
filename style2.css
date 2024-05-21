@@ -90,7 +90,7 @@ form .page .field input {
   width: 100%;
   border: 1px solid lightgrey;
   border-radius: 5px;
-  padding-left: 15px;
+  padding-left: 15px;   /*changer le deplacement de lecriture to the lef*/
   font-size: 14px; 
 }
 
@@ -253,7 +253,7 @@ form .page .btns button.next {
 .close {
   color: #aaaaaa;
   float: right ;
-  font-size: 28px;
+  font-size: 0px;
   font-weight: bold;
   
   
@@ -276,7 +276,7 @@ form .page .btns button.next {
 
 #ok-close {
   background-color:  #4CAF50;
-  color: white;
+  color: white;/*couleur du font ok fermer*/
 }
 
 .multiselect {
@@ -295,10 +295,10 @@ form .page .btns button.next {
  }
  #checkboxes {
   display: none;
-  border: 1px #dadada solid;
-  position: relative; /* Ajoutez cette ligne */
+position: relative; /* Ajoutez cette ligne */
   max-height: 150px; /* Ajoutez cette ligne pour activer le défilement si nécessaire */
   overflow-y: auto; /* Ajoutez cette ligne pour activer le défilement vertical si nécessaire */
+  
  }
  #checkboxes label {
   display: block;
@@ -307,3 +307,15 @@ form .page .btns button.next {
   background-color: #1e90ff;
  }
  
+ 
+
+
+    
+
+    /* Style pour mettre en évidence l'année si elle dépasse 2025 */
+    #yearInput.error {
+        border: 2px solid red; /* Bordure rouge */
+    }
+    #errorYear {
+      margin-top: 5px; /* Espacement entre la case de l'année et le texte d'erreur */
+  }

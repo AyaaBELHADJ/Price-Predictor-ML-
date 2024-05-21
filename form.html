@@ -8,7 +8,7 @@
 </head>
 <body>
    <div class="container">
-      <header>Estimez le prix de votre véhicule</header>
+      <header>Estimer le prix de votre véhicule</header>
       <div class="progress-bar">
          <div class="step">
             <p>Général</p>
@@ -45,57 +45,253 @@
                <div class="title">Généralités :</div>
                <div class="field">
                   <div class="label">Marque</div>
-                  <input type="text" name="make">
-               </div>
+                  <select name="make">  
+                      <option value="Dacia">Dacia</option>
+                      <option value="Seat">Seat</option>
+                      <option value="Kia">Kia</option>
+                      <option value="Nissan">Nissan</option>
+                      <option value="Volkswagen">Volkswagen</option>
+                      <option value="Peugeot">Peugeot</option>
+                      <option value="Fiat">Fiat</option>
+                      <option value="Renault">Renault</option>
+                      <option value="Chery">Chery</option>
+                      <option value="Great Wall">Great Wall</option>
+                      <option value="Citroen">Citroen</option>
+                      <option value="Hyundai">Hyundai</option>
+                      <option value="Suzuki">Suzuki</option>
+                      <option value="Alfa Romeo">Alfa Romeo</option>
+                      <option value="Chevrolet">Chevrolet</option>
+                      <option value="Mercedes">Mercedes</option>
+                      <option value="BMW">BMW</option>
+                      <option value="DS">DS</option>
+                      <option value="Toyota">Toyota</option>
+                      <option value="Huanghai">Huanghai</option>
+                      <option value="Skoda">Skoda</option>
+                      <option value="Daewoo">Daewoo</option>
+                      <option value="Haima">Haima</option>
+                      <option value="Zotye">Zotye</option>
+                      <option value="Audi">Audi</option>
+                      <option value="Gonow">Gonow</option>
+                      <option value="Land Rover">Land Rover</option>
+                      <option value="DFSK">DFSK</option>
+                      <option value="SsangYong">SsangYong</option>
+                      <option value="JAC">JAC</option>
+                      <option value="Ford">Ford</option>
+                      <option value="Lada">Lada</option>
+                      <option value="Chana">Chana</option>
+                      <option value="Opel">Opel</option>
+                      <option value="Baic">Baic</option>
+                      <option value="Honda">Honda</option>
+                      <option value="MG">MG</option>
+                      <option value="Faw">Faw</option>
+                      <option value="Chrysler">Chrysler</option>
+                      <option value="DFM">DFM</option>
+                      <option value="Daihatsu">Daihatsu</option>
+                      <option value="Hafei motors">Hafei motors</option>
+                      <option value="Isuzu">Isuzu</option>
+                      <option value="Geely">Geely</option>
+                      <option value="Mazda">Mazda</option>
+                      <option value="Lifan">Lifan</option>
+                      <option value="Tata">Tata</option>
+                      <option value="Rover">Rover</option>
+                      <option value="Mitsubishi">Mitsubishi</option>
+                      <option value="Changan">Changan</option>
+                      <option value="Porsche">Porsche</option>
+                      <option value="Aston Martin">Aston Martin</option>
+                      <option value="Tesla">Tesla</option>
+                      <option value="Brilliance">Brilliance</option>
+                      <option value="Maserati">Maserati</option>
+                      <option value="Jaguar">Jaguar</option>
+                      <option value="Cadillac">Cadillac</option>
+                      <option value="Bugatti">Bugatti</option>
+                      <option value="IKCO">IKCO</option>
+                      <option value="Jeep">Jeep</option>
+                      <option value="BYD">BYD</option>
+                      <option value="Yamaha">Yamaha</option>
+                      <option value="Emgrand">Emgrand</option>
+                      <option value="JMC">JMC</option>
+                      <option value="Hummer">Hummer</option>
+                      <option value="Mahindra">Mahindra</option>
+                      <option value="Subaru">Subaru</option>
+                      <option value="Volvo">Volvo</option>
+                      <option value="Lancia">Lancia</option>
+                      <option value="Dodge">Dodge</option>
+                      <option value="Smart">Smart</option>
+                      <option value="FOTON">FOTON</option>
+                      <option value="Saipa">Saipa</option>
+                      <option value="Sokon">Sokon</option>
+                      <option value="Changhe">Changhe</option>
+                  </select>
+              </div>
+              
                <div class="field">
                   <div class="label">Modèle</div>
-                  <input type="text" name="model">
+                  <select name="model">
+                     <option value="three">3</option>
+                     <option value="four">4</option>
+                  </select>
                </div>
-               <div class="field">
+               <div class="field" >
                   <div class="label">Année</div>
-                  <input type="text" name="year">
-               </div>
+                  <div style="display: inline-block;width: 93%">
+                      <input type="text" name="year" id="yearInput" placeholder="Entrez l'année">
+                      <div id="errorYear" style="color: red; display: none; white-space: nowrap;">L'année ne doit pas dépasser 2025</div>
+                  </div>
+              </div>
                <div class="field">
                   <button class="firstNext next">Next</button>
                </div>
             </div>
             <div class="page">
-               <div class="title">Performance :</div>
+               <div class="title">Performance du moteur :</div>
                <div class="field">
-                  <div class="label">Moteur</div>
-                  <input type="text" name="engine">
-               </div>
-               <div class="field">
-                  <div class="label">Kilométrage</div>
-                  <input type="text" name="mileage">
-               </div>
-               <div class="field">
-                  <div class="label">Énergie</div>
-                  <input type="text" name="fuel">
-               </div>
+                  <div class="label">Type du moteur</div>
+                  <select name="engine">
+                      <option value="4MATIC">4MATIC</option>
+                      <option value="4WD">4WD</option>
+                      <option value="ACC">ACC</option>
+                      <option value="AMG">AMG</option>
+                      <option value="AWD">AWD</option>
+                      <option value="BVA">BVA</option>
+                      <option value="BVM">BVM</option>
+                      <option value="BlueHDi">BlueHDi</option>
+                      <option value="BlueMotion">BlueMotion</option>
+                      <option value="CD">CD</option>
+                      <option value="CDI">CDI</option>
+                      <option value="CDTI">CDTI</option>
+                      <option value="CGI">CGI</option>
+                      <option value="CH">CH</option>
+                      <option value="CRDI">CRDI</option>
+                      <option value="CV">CV</option>
+                      <option value="CVT">CVT</option>
+                      <option value="CVVT">CVVT</option>
+                      <option value="Common Rail">Common Rail</option>
+                      <option value="D-CVVT">D-CVVT</option>
+                      <option value="D4">D4</option>
+                      <option value="D4D">D4D</option>
+                      <option value="DDI">DDI</option>
+                      <option value="DDTI">DDTI</option>
+                      <option value="DI-D">DI-D</option>
+                      <option value="DLX">DLX</option>
+                      <option value="DOHC">DOHC</option>
+                      <option value="DSG">DSG</option>
+                      <option value="DSG6">DSG6</option>
+                      <option value="DTEC">DTEC</option>
+                      <option value="DTR">DTR</option>
+                      <option value="Dci">Dci</option>
+                      <option value="Diesel">Diesel</option>
+                      <option value="E-XDI">E-XDI</option>
+                      <option value="ECOBOOST">ECOBOOST</option>
+                      <option value="EFI">EFI</option>
+                      <option value="EcoTec">EcoTec</option>
+                      <option value="Ecomotive">Ecomotive</option>
+                      <option value="FR">FR</option>
+                      <option value="FSI">FSI</option>
+                      <option value="GDI">GDI</option>
+                      <option value="GPL">GPL</option>
+                      <option value="GT">GT</option>
+                      <option value="GTD">GTD</option>
+                      <option value="GTI">GTI</option>
+                      <option value="GTS">GTS</option>
+                      <option value="HLBMT">HLBMT</option>
+                      <option value="HSE">HSE</option>
+                      <option value="HT">HT</option>
+                      <option value="HTP">HTP</option>
+                      <option value="Hybrid">Hybrid</option>
+                      <option value="MPI">MPI</option>
+                      <option value="MT">MT</option>
+                      <option value="MZR">MZR</option>
+                      <option value="Matic">Matic</option>
+                      <option value="Mjet">Mjet</option>
+                      <option value="Om">Om</option>
+                      <option value="PDK">PDK</option>
+                      <option value="PureTech">PureTech</option>
+                      <option value="Quattro">Quattro</option>
+                      <option value="R-Line">R-Line</option>
+                      <option value="RS">RS</option>
+                      <option value="S">S</option>
+                      <option value="S&S">S&S</option>
+                      <option value="S-Tronic">S-Tronic</option>
+                      <option value="S90">S90</option>
+                      <option value="SCe">SCe</option>
+                      <option value="SE">SE</option>
+                      <option value="SR">SR</option>
+                      <option value="STD">STD</option>
+                      <option value="Supercharged">Supercharged</option>
+                      <option value="TCI">TCI</option>
+                      <option value="TD">TD</option>
+                      <option value="TDI">TDI</option>
+                      <option value="TDI177">TDI177</option>
+                      <option value="TDI2.0">TDI2.0</option>
+                      <option value="TFSI">TFSI</option>
+                      <option value="TS">TS</option>
+                      <option value="Turbo">Turbo</option>
+                      <option value="V12">V12</option>
+                      <option value="V6">V6</option>
+                      <option value="V8">V8</option>
+                      <option value="VCDI">VCDI</option>
+                      <option value="VCT">VCT</option>
+                      <option value="VM">VM</option>
+                      <option value="VMAX">VMAX</option>
+                      <option value="VT">VT</option>
+                      <option value="VTEC">VTEC</option>
+                      <option value="VTI">VTI</option>
+                      <option value="VVT">VVT</option>
+                      <option value="VVTi">VVTi</option>
+                      <option value="XLI">XLI</option>
+                      <option value="eTorque">eTorque</option>
+                      <option value="ess">ess</option>
+                      <option value="hDi">hDi</option>
+                      <option value="missing">missing</option>
+                      <option value="tce">tce</option>
+                      <option value="tsi">tsi</option>
+                  </select>
+              </div>
+              
+              <div class="field">
+               <div class="label">Capacité</div>
+               <input type="text" name="year" placeholder="Entrez la Capacité ">
+           </div>
+           <div class="field">
+            <div class="label">cheval-vapeur</div>
+            <input type="text" name="year" placeholder="Entrez le cheval-vapeur">
+        </div>
                <div class="field btns">
                   <button class="prev-1 prev">Previous</button>
                   <button class="next-1 next">Next</button>
                </div>
             </div>
             <div class="page">
-               <div class="title">Détails Techniques :</div>
+               <div class="title">Détails Techniques :</div>    
                <div class="field">
                   <div class="label">Couleur</div>
-                  <input type="text" name="color">
+                  <select name="color">
+                     <option value="gris">Gris </option>
+                     <option value="blanc">Blanc</option>
+                     <option value="noir">Noir</option>
+                     <option value="bleu">Bleu</option>
+                     <option value="Vert">Vert</option>
+                     <option value="rouge">Rouge</option>
+                     <option value="marron">Marron</option>
+                     <option value="jaune">Jaune</option>
+                     <option value="beige">Beige</option>
+                     <option value="violet">violet</option>
+                     <option value="orange">Orange</option>
+                     <option value="rose">Rose</option>
+                     <option value="Autre">Autre</option>
+                  </select>
                </div>
                <div class="field">
                   <div class="label">Finition</div>
-                  <input type="text" name="trim">
-               </div>
-               <div class="field">
-                  <div class="label">Boîte</div>
-                  <select name="transmission">
-                     <option value="manual">Manuelle</option>
-                     <option value="automatic">Automatique</option>
-                     <option value="sequential">Séquentielle</option>
+                  <select name="trim">
+                     <option value="fi">15</option>
+                     <option value="si">16</option>
                   </select>
                </div>
+               <div class="field">
+                  <div class="label">Kilometrage</div>
+                  <input type="text" name="year" placeholder="Entrez le kilometrage">
+              </div>
                <div class="field btns">
                   <button class="prev-2 prev">Previous</button>
                   <button class="next-2 next">Next</button>
@@ -148,12 +344,27 @@
    </div>
    <div id="popup" class="popup">
       <div class="popup-content">
-         <span class="close">&times;</span>
+         <span class="close">&times</span>
          <p><strong>Completed</strong></p>
-         <p>L'estimation de prix de votre vehicule est : xxx</p>
-         <button id="ok-close">Ok, Close</button>
+         <p>L'estimation de prix de votre vehicule est : </p>
+         <button id="ok-close">Ok, fermer</button>
       </div>
    </div>
 <script src="script.js"></script>
+<script>
+   document.getElementById('yearInput').addEventListener('blur', function() {
+    var year = parseInt(this.value);
+    var errorYear = document.getElementById('errorYear');
+   
+    if (year >= 2025) {
+        this.classList.add('error'); // Ajoute la classe "error" à l'élément
+        errorYear.style.display = 'block';
+    } else {
+        this.classList.remove('error'); // Supprime la classe "error" de l'élément
+        errorYear.style.display = 'none';
+    }
+});
+
+</script>
 </body>
 </html>
