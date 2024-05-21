@@ -4,6 +4,25 @@ document.addEventListener('DOMContentLoaded', () => {
   const closeBtn = document.querySelector('.close');
   const okCloseBtn = document.getElementById('ok-close');
 
+
+
+  function getCookie(name) {
+    let cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+      const cookies = document.cookie.split(';');
+      for (let i = 0; i < cookies.length; i++) {
+        const cookie = cookies[i].trim();
+        // Does this cookie string begin with the name we want?
+        if (cookie.substring(0, name.length + 1) === (name + '=')) {
+          cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+          break;
+        }
+      }
+    }
+    return cookieValue;
+  }
+  const csrftoken = getCookie('csrftoken');
+
   submitButton.addEventListener('click', async function(event) {
      event.preventDefault();
   // Collecte les données du formulaire
@@ -21,6 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
+        'X-CSRFToken': csrftoken,
       },
       body: JSON.stringify(data),
     });
@@ -31,6 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
   } catch (error) {
     console.error('Error:', error);
   }
+
 //Gestion de la fermeture du popup
 
 closeBtn.addEventListener('click', () => {
@@ -58,97 +79,59 @@ okCloseBtn.addEventListener('click', () => {
      }
   });
 });
+//form navigation
+const pages = document.querySelectorAll('.page');
+const nextButtons = document.querySelectorAll('.next');
+const prevButtons = document.querySelectorAll('.prev');
+let currentPage = 0;
 
-const slidePage = document.querySelector(".slide-page");
-const nextBtnFirst = document.querySelector(".firstNext");
-const prevBtnSec = document.querySelector(".prev-1");
-const nextBtnSec = document.querySelector(".next-1");
-const prevBtnThird = document.querySelector(".prev-2");
-const nextBtnThird = document.querySelector(".next-2");
-const prevBtnFourth = document.querySelector(".prev-3");
-const submitBtn = document.querySelector(".submit");
-
-const progressText = document.querySelectorAll(".step p");
-const progressCheck = document.querySelectorAll(".step .check");
-const bullet = document.querySelectorAll(".step .bullet");
-const section = document.querySelector("section");
-const overlay = document.querySelector(".overlay");
-const closeBtn = document.querySelector(".close-btn");
-
-let current = 1;
-
-nextBtnFirst.addEventListener("click", function(event) {
-  event.preventDefault();
-  slidePage.style.marginLeft = "-25%";
-  bullet[current - 1].classList.add("active");
-  progressCheck[current - 1].classList.add("active");
-  progressText[current - 1].classList.add("active");
-  current += 1;
+nextButtons.forEach(button => {
+  button.addEventListener('click', (event) => {
+    event.preventDefault();
+    if (currentPage < pages.length - 1) {
+      pages[currentPage].style.display = 'none';
+      currentPage++;
+      pages[currentPage].style.display = 'block';
+      updateProgress(currentPage);
+    }
+  });
 });
 
-nextBtnSec.addEventListener("click", function(event) {
-  event.preventDefault();
-  slidePage.style.marginLeft = "-50%";
-  bullet[current - 1].classList.add("active");
-  progressCheck[current - 1].classList.add("active");
-  progressText[current - 1].classList.add("active");
-  current += 1;
+prevButtons.forEach(button => {
+  button.addEventListener('click', (event) => {
+    event.preventDefault();
+    if (currentPage > 0) {
+      pages[currentPage].style.display = 'none';
+      currentPage--;
+      pages[currentPage].style.display = 'block';
+      updateProgress(currentPage);
+    }
+  });
 });
 
-nextBtnThird.addEventListener("click", function(event) {
-  event.preventDefault();
-  slidePage.style.marginLeft = "-75%";
-  bullet[current - 1].classList.add("active");
-  progressCheck[current - 1].classList.add("active");
-  progressText[current - 1].classList.add("active");
-  current += 1;
-});
+function updateProgress(currentPage) {
+  const bullets = document.querySelectorAll('.bullet');
+  const progressCheck = document.querySelectorAll('.check');
+  const progressText = document.querySelectorAll('.step p');
 
-submitBtn.addEventListener("click", function(event) {
-  event.preventDefault();
-  bullet[current - 1].classList.add("active");
-  progressCheck[current - 1].classList.add("active");
-  progressText[current - 1].classList.add("active");
-  current += 1;
-
-  // Affiche le pop-up
-  section.classList.add("active");
-});
-
-prevBtnSec.addEventListener("click", function(event) {
-  event.preventDefault();
-  slidePage.style.marginLeft = "0%";
-  bullet[current - 2].classList.remove("active");
-  progressCheck[current - 2].classList.remove("active");
-  progressText[current - 2].classList.remove("active");
-  current -= 1;
-});
-
-prevBtnThird.addEventListener("click", function(event) {
-  event.preventDefault();
-  slidePage.style.marginLeft = "-25%";
-  bullet[current - 2].classList.remove("active");
-  progressCheck[current - 2].classList.remove("active");
-  progressText[current - 2].classList.remove("active");
-  current -= 1;
-});
-
-prevBtnFourth.addEventListener("click", function(event) {
-  event.preventDefault();
-  slidePage.style.marginLeft = "-50%";
-  bullet[current - 2].classList.remove("active");
-  progressCheck[current - 2].classList.remove("active");
-  progressText[current - 2].classList.remove("active");
-  current -= 1;
-});
-
-overlay.addEventListener("click", () => {
-  section.classList.remove("active");
-});
-
-closeBtn.addEventListener("click", () => {
-  section.classList.remove("active");
-});
+  bullets.forEach((bullet, index) => {
+    if (index < currentPage) {
+      bullet.classList.add('active');
+      progressCheck[index].classList.add('active');
+      progressText[index].classList.add('active');
+    } else {
+      bullet.classList.remove('active');
+      progressCheck[index].classList.remove('active');
+      progressText[index].classList.remove('active');
+    }
+  
+  });
+}
+  
+      // Ensure only the first page is visible initially
+      pages.forEach((page, index) => {
+        if (index !== 0) page.style.display = 'none';
+      });
 var expanded = false;
  
 function showCheckboxes() {
