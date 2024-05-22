@@ -1,30 +1,32 @@
-document.addEventListener('DOMContentLoaded', () => {
-  const submitButton = document.querySelector('.submit');
+document.addEventListener('DOMContentLoaded', () => {      //// Tout le code à l'intérieur de cette fonction sera exécuté
+  // une fois que le document HTML a été complètement chargé.
+  const submitButton = document.querySelector('.submit'); //selectionner l'elt avec la classe submit
   const popup = document.getElementById('popup');
   const closeBtn = document.querySelector('.close');
   const okCloseBtn = document.getElementById('ok-close');
 
 
 
-  function getCookie(name) {
+  function getCookie(name) {   //Cette fonction récupère la valeur d'un cookie donné par son nom. Ceci est utile pour des raisons de sécurité, notamment pour récupérer le jeton CSRF.
     let cookieValue = null;
-    if (document.cookie && document.cookie !== '') {
-      const cookies = document.cookie.split(';');
+    if (document.cookie && document.cookie !== '') { //verifier lexistense du cookie
+      const cookies = document.cookie.split(';'); //separer les cookies par une virgule
       for (let i = 0; i < cookies.length; i++) {
-        const cookie = cookies[i].trim();
+        const cookie = cookies[i].trim(); //supprime les espaces blanc entre les cookies
         // Does this cookie string begin with the name we want?
         if (cookie.substring(0, name.length + 1) === (name + '=')) {
-          cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+          cookieValue = decodeURIComponent(cookie.substring(name.length + 1)); //decoder la valeur du cookie
           break;
         }
       }
     }
     return cookieValue;
   }
-  const csrftoken = getCookie('csrftoken');
+  const csrftoken = getCookie('csrftoken'); //Récupération du jeton CSRF
 
-  submitButton.addEventListener('click', async function(event) {
-     event.preventDefault();
+  submitButton.addEventListener('click', async function(event) { //lorsqune on clique sur le bouton une fonction asynchrone sera execute
+     event.preventDefault();  //Cette ligne ajoute un écouteur d'événement au bouton de soumission. event.preventDefault() empêche le comportement par défaut du formulaire, qui serait de recharger la page.
+     
   // Collecte les données du formulaire
   const form = document.getElementById('vehicle-form');
   const formData = new FormData(form);
