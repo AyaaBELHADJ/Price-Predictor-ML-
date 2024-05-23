@@ -4,7 +4,33 @@ from django.views.decorators.csrf import csrf_exempt
 import json
 from joblib import load
 
-model = load('C:/Users/LENOVO/Downloads/random_forest_model.joblib')
+model_path = r'C:\Users\LENOVO\Documents\Joblib\random_forest_model1.joblib'
+try:
+    model = load(model_path)
+except FileNotFoundError:
+    print(f"Model file not found at {model_path}")
+    model = None
+
+def engine_capacity_binf(score):
+  
+    if score <= 9:
+        grade = 1
+    elif score <= 18:
+        grade = 2
+    elif score <= 25:
+        grade = 3
+    return grade
+   
+
+def kilometrage_binf(score):
+    
+    if score <= 120000:
+        grade = 1
+    elif score <= 400000:
+        grade = 2
+    elif score <= 9999999:
+        grade = 3
+    return grade
 
 # definition de mappings
 COLOR_MAPPING = {
@@ -418,40 +444,92 @@ finition_mapping = {
     "Laguna 2": 2582,
 }
 
+def estimate_vehicle(features):
+    # Check if any feature is None
+           if any(feature is None for feature in features.values()):
+             return "Error: Missing feature(s)"
+
+    # Check if horsepower and capacity are not None and not zero
+             cheval_vapeur = features.get('cheval_vapeur')
+             capacite = features.get('capacite')
+           if cheval_vapeur is None or capacite is None:
+              return "Error: Horsepower or capacity is missing"
+           if cheval_vapeur == 0 or capacite == 0:
+              return "Error: Horsepower or capacity cannot be zero"
+
+   
+              HorsPowerParCapacite = cheval_vapeur / capacite
+
+    # Make prediction using the model
+              prediction = model.predict(features)[0]
+              return prediction
+
 
 @csrf_exempt
 def estimer_vehicule(request):
     if request.method == 'POST':
-        try:
+     
             data = json.loads(request.body)
 
 #Extract the data from the request
+            
             marque = data.get('marque')
             modele = data.get('modele')
             annee = int(data.get('annee'))
             energie = data.get('energie')
             kilometrage = data.get('kilometrage')
             boite = data.get('boite')
+            capacite = data.get('capacite')
             couleur = data.get('couleur')
             finition = data.get('finition')
-            moteur = data.get('moteur')
+            moteur = data.get('Type du moteur')
             papiers = data.get('papiers')
             cheval_vapeur = data.get('Cheval-Vapeur')
             options = data.get('options', [])
+            
 
             couleur_code = COLOR_MAPPING.get(couleur, 0)
             papiers_code = PAPER_MAPPING.get(papiers, -1)
             marque_code = brand_mapping.get(marque, 56)
             engine_code = engine_mapping.get(moteur, 95)
             finition_code = finition_mapping.get(finition,-1)
+            CarAge = 2025 - annee
+            HorsPowerParCapacite = cheval_vapeur/capacite
+            CapaciteParAge = capacite/CarAge
+            KilometrageParAnnee = kilometrage/CarAge
 
-            # Simulate an estimation (replace with your actual estimation logic)
-            estimation = 5000000  # Example estimation value
+            engine_capacity_bin = engine_capacity_binf(capacite)
 
-            return JsonResponse({'estimation': estimation, 'couleur_code': couleur_code, 'papiers_code': papiers_code})
-        except json.JSONDecodeError:
-            return HttpResponseBadRequest("Invalid JSON")
-        except Exception as e:
-            return HttpResponseBadRequest(f"An error occurred: {str(e)}")
+            kilometrage_bin = kilometrage_binf(kilometrage)
+            kilometrage_par_annee_bin = kilometrage
+            Min_price_par_bin = 330.05
+            Min_price_par_kilometre = Min_price_par_bin/kilometrage
+            Min_price2_par_kilometre =(Min_price_par_bin) **2 / kilometrage
+            titre = marque + modele + finition 
+            engine = capacite + moteur + cheval_vapeur
+             # features = [annee, couleur, papiers, kilometrage, marque, modele, finition, 2, capacite, moteur, cheval_vapeur, titre, engine, CarAge, engine_capacity_bin, kilometrage_bin,HorsPowerParCapacite, CapaciteParAge, KilometrageParAnnee, kilometrage_par_annee_bin,Min_price_par_bin, Min_price_par_kilometre, Min_price2_par_kilometre]
+          #Convertir en format approprié 
+            #features = np.array(features).reshape(1, -1)
+          #Faire la prédiction
+            #estimation = model.predict(features)[0]
+            
+            #features = [data['annee'], data['couleur'],data['papiers'],data['kilometrage'],data['marque'],data['modele'],data['finition'],1,data['capacite'],data['moteur'],data['cheval_vapeur'],data['titre'],data['aengine'],data['CarAge'],data['engine_capacity_bin'],data['kilometrage_bin'],data['HorsPowerParCapacite'],data['CapaciteParAge'],data['kilometrage_par_annee'],data['kilometrage_par_annee_bin'],data['Min_price_par_bin'],data['Min_price_par_kilometre'],data['Min_price2_par_kilometre']]  
+         
+
+          # Faire la prédiction
+            #prediction = model.predict(features)[0]
+
+            # Renvoyer la prédiction
+            #estimation  = {'prediction': prediction}
+
+            
+            #return JsonResponse({'estimation': estimation, 'couleur_code': couleur_code, 'papiers_code': papiers_code, 
+           # 'marque_code': marque_code, 'engine_code':engine_code,'finition_code': finition_code })
+
+       
+           # Simuler une estimation 
+            estimation = 25000000  # Exemple d'estimations
+
+            return JsonResponse({'estimation': estimation})
     else:
-        return JsonResponse({'error': 'Invalid request method'}, status=400)
+            return JsonResponse({'error': 'Invalid request method'}, status=400)
